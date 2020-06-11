@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const Post = require('./models/post');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -15,7 +17,10 @@ app.use((req, res, next) => {
 
 // TODO: Add MongoDB so we can actually store the data we want to save.
 app.post('/api/posts', (req, res, next) => {
-  const post = req.body();
+  const post = new Post({
+    title: req.body.title,
+    content: req.body.content
+  });
   console.log(post);
   res.status(201).json({
     message: 'Post Added succesfully'
@@ -35,3 +40,6 @@ app.get('/api/posts', (req, res, next) => {
 
 // Exports the express server and all attached middlewares to use in another file
 module.exports = app;
+
+// gregersen
+// 45xMPTNCK8wEwEDo
