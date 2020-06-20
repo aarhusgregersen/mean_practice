@@ -7,7 +7,11 @@ const Post = require('./models/post');
 const app = express();
 
 
-mongoose.connect("mongodb+srv://gregersen:45xMPTNCK8wEwEDo@angulartutorial-0xffa.mongodb.net/node-angular?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://gregersen:45xMPTNCK8wEwEDo@angulartutorial-0xffa.mongodb.net/node-angular?retryWrites=true&w=majority",
+  {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+  })
   .then(() => {
     console.log("Connected to database!")
   })
