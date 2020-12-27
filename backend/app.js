@@ -16,8 +16,8 @@ mongoose.connect("mongodb+srv://gregersen:45xMPTNCK8wEwEDo@angulartutorial-0xffa
 .then(() => {
   console.log("Connected to database!")
 })
-.catch(() => {
-  console.log("Connection failed!");
+.catch((err) => {
+  console.log("Connection failed!", err);
 });
 
 app.use(bodyParser.json());
