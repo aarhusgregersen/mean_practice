@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const postsRoutes = require('./routes/posts');
+const userRoutes = require('./routes/auth');
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/posts", postsRoutes);
+app.use("api/user", userRoutes);
 
 // Exports the express server and all attached middlewares to use in another file
 module.exports = app;
